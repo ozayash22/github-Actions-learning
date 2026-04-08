@@ -1,7 +1,17 @@
 name: workflow scope varaible
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs: 
+      number1:
+        description: First Number
+        default: 0
+        required: true
+      number2:
+        description: Second Number
+        default: 0
+        required: true
+      
 
 env:
   cloud: Azure_Cloud platform
@@ -20,4 +30,12 @@ jobs:
           echo "Name of the Repository ${{github.repository}}"
           echo "Name of the workflow: ${{github.workflow}}"
           echo "Name of the triggering actor: ${{github.triggering_actor}}"
-    
+  Adding_Input_Numbers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Adding numbers
+        id: sum
+        run: echo "::set-output name=sum::$((${{inputs.number1}} + ${{inputs.number2}} ))"
+      - name: Display Sum
+        run: echo "The sum of two number is, ${{ inputs.number1 }} and ${{inputs.number2}} is ${{steps.sum.outputs.sum}} "
+      
