@@ -15,6 +15,7 @@ jobs:
         run: echo "$Greetings, $First_name is $cloud!"
         env:
           First_name: Rushikesh
+      - name: "Context Variable's is defined in this step"
         run: | 
           echo: "Name of the Repository ${{github.repository}}"
           echo: "Name of the workflow: ${{github.workflow}}"
