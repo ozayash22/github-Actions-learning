@@ -36,7 +36,7 @@ jobs:
       - name: Adding numbers
         id: sum
         run: |
-          Result=$((${{inputs.number1}} + ${{inputs.number2}} ))"
+          Result=$((${{inputs.number1}} + ${{inputs.number2}} ))
           echo "sum=$Result" >> $GITHUB_OUTPUT
       - name: Display Sum
         run: echo "The sum of two number is, ${{ inputs.number1 }} and ${{inputs.number2}} is ${{steps.sum.outputs.sum}} "
