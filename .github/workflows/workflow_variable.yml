@@ -15,4 +15,8 @@ jobs:
         run: echo "$Greetings, $First_name is $cloud!"
         env:
           First_name: Rushikesh
+        run: | 
+          echo: "Name of the Repository ${{github.repository}}"
+          echo: "Name of the workflow: ${{github.workflow}}"
+          echo: "Name of the triggering actor: ${{github.trrigering_actor}}"
     
